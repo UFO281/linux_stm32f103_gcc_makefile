@@ -35,4 +35,4 @@ $(TARGET).elf: $(OBJECTS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJECTS) $(TARGET).elf $(TARGET).bin
+	@rm -f %.elf %.bin
