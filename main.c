@@ -14,14 +14,15 @@
 
 
 
-
+/**
+ * @brief 延时函数
+ * 
+ * @param count 
+ */
 void delay(uint32_t count); 
 
-/**
- * @brief 
- * 
- * @return int 
- */
+
+
 int main(void) 
 {
 
@@ -53,11 +54,7 @@ int main(void)
 
 
 
-/**
- * @brief 延时函数
- * 
- * @param count 
- */
+
 void delay(uint32_t count) 
 {
     for(uint32_t i = 0; i < count; i++);
