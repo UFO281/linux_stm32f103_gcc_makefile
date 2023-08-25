@@ -1,4 +1,4 @@
-TARGET = led_project
+TARGET = GPIO_roject
 
 # 编译器和工具
 CC = arm-none-eabi-gcc
@@ -18,21 +18,23 @@ LDSCRIPT = STM32F103C8T6.ld
 SOURCES = main.c
 
 # 对象文件列表
-OBJECTS = $(SOURCES:.c=.o)
+OBJECTS = $(SOURCES:.c=.o) 
 
-all: $(TARGET).bin
+all: $(TARGET).bin  
 
 # 生成目标二进制文件
-$(TARGET).bin: $(TARGET).elf
-	@$(OBJCOPY) -O binary $< $@
-
-# 生成目标elf文件
-$(TARGET).elf: $(OBJECTS)
-	@$(LD) $(LDFLAGS) $(OBJECTS) -T $(LDSCRIPT) -o $@
+$(TARGET).bin: $(TARGET).elf   
+	@$(OBJCOPY) -O binary $< $@  
+   
+# 生成目标elf文件  
+$(TARGET).elf: $(OBJECTS)  
+	@$(LD) $(LDFLAGS) $(OBJECTS) -T $(LDSCRIPT) -o $@  
 
 # 编译每个源文件
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f %.elf %.bin
+	@rm -f $(OBJECTS) $(TARGET).elf $(TARGET).bin
+# rm -f *.elf *.bin
+# @rm -f %.elf %.bin
