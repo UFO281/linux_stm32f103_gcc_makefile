@@ -98,7 +98,7 @@ int main(void)
         /* USER CODE END WHILE */
         i=!i;
         HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin,i);
-        HAL_Delay(300);
+        HAL_Delay(100);
         
         /* USER CODE BEGIN 3 */
     }

@@ -7,18 +7,21 @@
         {
             "name": "Cortex Debug",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/led.elf",
+            "executable": "./build/led.elf", //mcu程序可执行文件路径
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
             "configFiles": [
-                "interface/cmsis-dap.cfg",
-                "target/stm32f1x.cfg"
+                "interface/cmsis-dap.cfg",//调试器配置文件 我用的是CMSIS-DAP所以选的这个配置文件,
+                                            // 绝对路径是/usr/share/openocd/scripts/interface
+
+                "target/stm32f1x.cfg" //对应MCU系列的配置文件，绝对路径/usr/share/openocd/scripts/target
             ],
-            "gdbPath": "/usr/bin/gdb-multiarch",
-            "armToolchainPath": "/usr/bin",
-            "svdFile": "/home/wls/linux/stm32/led/stm32f103x.svd",
+            "gdbPath": "/usr/bin/gdb-multiarch", //gdb-multiarch 默认路径，按照sudo apt install安装的应该改都是这个路径
+            "armToolchainPath": "/usr/bin", //arm-none-eabi-gcc安装路径和gdb-multiarch同理
+            "svdFile": "/home/wls/wls/linux_stm32f103_gcc_makefile/led/stm32f103x.svd",//看你具体的文件位置了
             "preLaunchTask": "Build"
         }
     ]
 }
+
