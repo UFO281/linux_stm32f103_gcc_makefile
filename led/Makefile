@@ -211,7 +211,9 @@ download:
 	$(OPENOCD_CMD) 
 
 # auto compile and download
-Rebuild_and_download:all download
+rebuild_and_download:clean \
+					all \
+					download
 
 
 # openocd -c "gdb_port 50000" -c "tcl_port 50001" -c "telnet_port 50002" -s /home/wls/wls/linux_stm32f103_gcc_makefile/led -f /home/wls/.vscode-server/extensions/marus25.cortex-debug-1.12.1/support/openocd-helpers.tcl -f interface/cmsis-dap.cfg -f target/stm32f1x.cfg -c "program /home/wls/wls/linux_stm32f103_gcc_makefile/led/build/led.elf verify reset exit"
